@@ -12,6 +12,7 @@
 		"seedDevelopment": "NODE_ENV=development tsx ./seed.ts"
 	},
 	"dependencies": {
+		"@clerk/nextjs": "^4.27.1",
 		"@vercel/postgres": "^0.5.1",
 		"@vercel/postgres-kysely": "^0.6.0",
 		"kysely": "^0.26.3",
