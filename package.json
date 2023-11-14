@@ -8,9 +8,13 @@
 		"start": "next start",
 		"lint": "next lint",
 		"format": "prettier --check --ignore-path .gitignore .",
-		"format:fix": "prettier --write --ignore-path .gitignore ."
+		"format:fix": "prettier --write --ignore-path .gitignore .",
+		"seedDevelopment": "NODE_ENV=development tsx ./seed.ts"
 	},
 	"dependencies": {
+		"@vercel/postgres": "^0.5.1",
+		"@vercel/postgres-kysely": "^0.6.0",
+		"kysely": "^0.26.3",
 		"next": "14.0.2",
 		"react": "^18",
 		"react-dom": "^18"
@@ -27,6 +31,7 @@
 		"prettier": "^3.0.3",
 		"prettier-plugin-tailwindcss": "^0.5.7",
 		"tailwindcss": "^3.3.5",
+		"tsx": "^4.1.2",
 		"typescript": "^5"
 	}
 }
