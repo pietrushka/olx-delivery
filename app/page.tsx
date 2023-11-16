@@ -1,10 +1,20 @@
 import Image from "next/image"
-import { UserButton } from "@clerk/nextjs"
+import Link from "next/link"
+
+function AddButton() {
+	return (
+		<Link className=" rounded border-2 border-black p-2 text-xl font-bold" href="/add-parcel">
+			<span className="block text-center">+</span>
+			<Image src="/package.png" width={100} height={100} alt="package" />
+		</Link>
+	)
+}
 
 export default function Home() {
 	return (
-		<div>
-			<UserButton afterSignOutUrl="/" />
+		<div className="flex min-h-full flex-col items-center p-4">
+			<h1 className="mb-20 text-8xl font-bold">WE ARE MAKING SENDING CRAZY CHEAP</h1>
+			<AddButton />
 		</div>
 	)
 }

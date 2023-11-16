@@ -22,22 +22,20 @@ function AuthButton() {
 
 export default function Header() {
 	return (
-		<header className="-lg fixed w-full border-b-2 border-black font-bold">
-			<div className="mx-auto flex w-10/12 justify-between ">
-				<div className="flex">
-					<div className="flex justify-center  text-center">
-						<Link className="block flex-1 p-4" href="/add-parcel">
-							Add parcel
-						</Link>
-					</div>
-					<div className="flex justify-center text-center">
-						<Link className="block flex-1 p-4" href="/my-parcels">
-							My parcels
-						</Link>
-					</div>
+		<header className="flex justify-between border-b-2 border-black bg-white font-bold">
+			<div className="flex">
+				<div className="flex justify-center  text-center">
+					<Link className="block flex-1 p-4" href="/add-parcel">
+						Add parcel
+					</Link>
 				</div>
-				<AuthButton />
+				<div className="flex justify-center text-center">
+					<Link className="block flex-1 p-4" href="/my-parcels">
+						My parcels
+					</Link>
+				</div>
 			</div>
+			<AuthButton />
 		</header>
 	)
 }
