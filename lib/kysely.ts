@@ -1,4 +1,4 @@
-import { Generated, ColumnType } from "kysely"
+import { ColumnType, Generated, Insertable, Selectable, Updateable } from "kysely"
 import { createKysely } from "@vercel/postgres-kysely"
 
 interface ParcelsTable {
@@ -10,6 +10,7 @@ interface ParcelsTable {
 	senderStreetAndNumber: string
 	senderEmail: string
 	senderPhone: string
+	senderLockerCode: string
 	recipientName: string
 	recipientSurname: string
 	recipientPostalCode: string
@@ -17,8 +18,13 @@ interface ParcelsTable {
 	recipientStreetAndNumber: string
 	recipientEmail: string
 	recipientPhone: string
+	recipientLockerCode: string
 	createdAt: ColumnType<Date, string | undefined, never>
 }
+
+export type Parcel = Selectable<ParcelsTable>
+export type NewParcel = Insertable<ParcelsTable>
+export type ParcelUpdate = Updateable<ParcelsTable>
 
 // Keys of this interface are table names.
 export interface Database {
