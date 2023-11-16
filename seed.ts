@@ -1,8 +1,3 @@
-import { loadEnvConfig } from "@next/env"
-
-const projectDir = process.cwd()
-loadEnvConfig(projectDir, process.env.NODE_ENV === "development")
-
 async function seedParcels() {
 	const { db, sql } = await import("./lib/kysely")
 	const createTable = await db.schema

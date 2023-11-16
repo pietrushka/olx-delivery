@@ -9,7 +9,7 @@
 		"lint": "next lint",
 		"format": "prettier --check --ignore-path .gitignore .",
 		"format:fix": "prettier --write --ignore-path .gitignore .",
-		"seedDevelopment": "NODE_ENV=development tsx ./seed.ts"
+		"seedDevelopment": "tsx --env-file=.env.development.local ./seed.ts"
 	},
 	"dependencies": {
 		"@clerk/nextjs": "^4.27.1",
