@@ -1,0 +1,14 @@
+import Image from 'next/image'
+
+export default function Footer() {
+	return (
+        <footer className='flex flex-col items-center w-10/12 m-auto border-x-2 border-t-2 border-black py-4'>
+            <Image
+                src="/pietrushkaGithubBarcode.png"
+                width={500}
+                height={500}
+                alt="Author github link barcode"
+            />
+        </footer>
+    )
+}
