@@ -8,7 +8,7 @@ function AuthButton() {
 
 	if (isSignedIn) {
 		return (
-			<div className=" flex w-1/12 items-center justify-center ">
+			<div className=" flex items-center justify-center px-2 ">
 				<UserButton afterSignOutUrl="/" />
 			</div>
 		)
