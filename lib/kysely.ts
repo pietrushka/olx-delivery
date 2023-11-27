@@ -22,13 +22,41 @@ interface ParcelsTable {
 	createdAt: ColumnType<Date, string | undefined, never>
 }
 
+interface OlxAccountsTable {
+	id: Generated<number>
+	email: string
+	password: string
+	cookiesString: string
+	localStorageString: string
+	createdAt: ColumnType<Date, string | undefined, never>
+}
+
+interface AdsBlueprintsTable {
+	id: Generated<number>
+	title: string
+	description: string
+	price: number
+	loaction: string
+	contactName: string
+}
+
 export type Parcel = Selectable<ParcelsTable>
 export type NewParcel = Insertable<ParcelsTable>
 export type ParcelUpdate = Updateable<ParcelsTable>
 
+export type OlxAccount = Selectable<OlxAccountsTable>
+export type NewOlxAccount = Insertable<OlxAccountsTable>
+export type OlxAccountUpdate = Updateable<OlxAccountsTable>
+
+export type AdsBlueprint = Selectable<AdsBlueprintsTable>
+export type NewAdsBlueprint = Insertable<AdsBlueprintsTable>
+export type AdsBlueprintUpdate = Updateable<AdsBlueprintsTable>
+
 // Keys of this interface are table names.
 export interface Database {
 	parcels: ParcelsTable
+	olxAccounts: OlxAccountsTable
+	adsBlueprints: AdsBlueprintsTable
 }
 
 export const db = createKysely<Database>()
