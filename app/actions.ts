@@ -1,7 +1,7 @@
 "use server"
 
 import { z } from "zod"
-import { insertParcelReturnId } from "@/lib/ParcelsRepository"
+import ParcelsRepository from "@/lib/repositories/ParcelsRepository"
 
 function validateData(formData: FormData) {
 	const schema = z.object({
@@ -27,7 +27,7 @@ function validateData(formData: FormData) {
 
 export async function addParcel(prevState: any, formData: FormData) {
 	const data = validateData(formData)
-	const parcelId = await insertParcelReturnId(data)
+	const parcelId = await ParcelsRepository.insertParcelReturnId(data)
 
 	if (!parcelId) {
 		return { message: "Error while adding parcel" }
