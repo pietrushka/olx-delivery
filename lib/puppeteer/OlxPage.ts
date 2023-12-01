@@ -1,28 +1,7 @@
 import { Page, ElementHandle } from "puppeteer"
 import CommonPage, { Cookie, LocalStorage } from "@/lib/puppeteer/CommonPage"
 import { AdsBlueprint } from "@/lib/kysely"
-
-export enum OlxSelectors {
-	titleInput = "#title",
-	descriptionInput = "#description",
-	priceInput = "#parameters\\.price\\.price",
-	itemUsedRadioButton = 'div[data-cy="parameters.state_used"] button',
-	autoProlongationButton = "label.switch__container span.switch__toggle",
-	emailInput = 'input[type="email"]',
-	passwordInput = 'input[type="password"]',
-	submitButton = 'button[type="submit"]',
-	sSizeToggle = "#Band-S__toggle",
-	inpostSSizeInput = 'input[aria-label="INPOST package size S"]',
-	cityInput = 'input[name="city_id"]',
-	createAdSubmit = 'button[type="submit"]',
-	privateSellOption = 'label[data-sopid="payU-private"]',
-	sellerPayUFirstName = 'input[aria-labelledby="firstName-label"]',
-	sellerPayULastName = 'input[aria-labelledby="lastName-label"]',
-	payUTermsIframe = "#payuRegulationsAcceptance iframe",
-	payUTermsCheckbox = "input",
-	locationSuggestionOption = 'li[data-testid="location-list-item"]',
-	notFinishedAdModal = ".ReactModalPortal",
-}
+import { OlxSelectors, OlxXPathExpressions } from "@/lib/constants/olx"
 
 class OlxPage {
 	handlePayUForm = async (page: Page, blueprint: AdsBlueprint) => {
