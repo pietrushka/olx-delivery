@@ -1,7 +1,8 @@
 import { Page, ElementHandle } from "puppeteer"
 import CommonPage, { Cookie, LocalStorage } from "@/lib/puppeteer/CommonPage"
 import { AdsBlueprint } from "@/lib/kysely"
-import { OlxSelectors, OlxXPathExpressions } from "@/lib/constants/olx"
+import OlxLinkGenerator from "@/lib/utils/OlxLinkGenerator"
+import { OLX_BASE_URL, OlxSelectors, OlxXPathExpressions } from "@/lib/constants/olx"
 
 class OlxPage {
 	handlePayUForm = async (page: Page, blueprint: AdsBlueprint) => {
@@ -32,7 +33,8 @@ class OlxPage {
 	}
 
 	createNewAd = async (page: Page, blueprint: AdsBlueprint) => {
-		await page.goto("https://www.olx.pl/adding", { waitUntil: "networkidle0" })
+		const createAdUrl = new OlxLinkGenerator().addSubPage("adding").url
+		await page.goto(createAdUrl, { waitUntil: "networkidle0" })
 
 		this.handleNotFinishedAdModal(page)
 
@@ -93,7 +95,7 @@ class OlxPage {
 	}
 
 	loadStorageData = async (page: Page, cookies: Cookie[], localStorageData: LocalStorage) => {
-		await page.goto("https://www.olx.pl", { waitUntil: "networkidle0" })
+		await page.goto(OLX_BASE_URL, { waitUntil: "networkidle0" })
 		await CommonPage.loadStorageData(page, cookies, localStorageData)
 		console.log("Loaded localStorageData, now waiting for network idle")
 		await page.waitForNetworkIdle()

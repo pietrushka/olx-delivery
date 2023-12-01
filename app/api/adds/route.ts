@@ -2,6 +2,7 @@ import OlxPage from "@/lib/puppeteer/OlxPage"
 import CommonPage from "@/lib/puppeteer/CommonPage"
 import OlxAccountsRepository from "@/lib/repositories/OlxAccountsRepository"
 import AdsBlueprintsRepository from "@/lib/repositories/AdsBlueprintsRepository"
+import { OLX_BASE_URL } from "@/lib/constants/olx"
 
 export async function POST() {
 	// TODO rearrange queries
@@ -18,7 +19,7 @@ export async function POST() {
 		await OlxPage.loadStorageData(page, storageData.cookies, storageData.localStorage)
 		await OlxPage.createNewAd(page, adBlueprint)
 	} finally {
-		await page.goto("https://www.olx.pl", { waitUntil: "networkidle0" })
+		await page.goto(OLX_BASE_URL, { waitUntil: "networkidle0" })
 		const pageStorage = await CommonPage.extractStorageData(page)
 		OlxAccountsRepository.saveStorageData(storageData.accountId, pageStorage)
 		await browser.close()
